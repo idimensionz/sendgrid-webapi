@@ -1,0 +1,18 @@
+{
+    "name": "idimensionz/sendgrid-webapi",
+    "description": "PHP implementation of the SendGrid WebAPI",
+    "require": {
+        "guzzlehttp/guzzle": "5.3.*",
+        "symfony/symfony": "2.6.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.6.*"
+    },
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "Jim Mullen",
+            "email": "jim@idimensionz.com"
+        }
+    ]
+}
