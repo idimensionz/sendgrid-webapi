@@ -210,7 +210,7 @@ class SpamReports extends SendGridWebApiAbstract
      */
     public function setEmail($email)
     {
-        if (is_null($email) || )
+//        if (is_null($email) || )
         $this->email = $email;
     }
 }
