@@ -59,6 +59,8 @@ class SpamReports extends SendGridWebApiAbstract
         $this->setOffset($offset);
         $this->setEmail($email);
         $response = $this->callApiFunction();
+
+        return $response;
     }
 
     public function count()

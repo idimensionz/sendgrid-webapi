@@ -78,10 +78,12 @@ abstract class SendGridWebApiAbstract
         $url = $this->getApiBaseUrl() . $this->getModule() . '.' . $this->getAction() . $this->getFormat() . '?';
         $url .= 'api_user='.$this->getApiUserName() . '&api_key=' . $this->getApiPassword();
         $parameterStrings = [];
-        foreach ($this->parameters as $key=>$value) {
-            $parameterStrings[] = "{$key}={$value}";
+        if (is_array($this->parameters) && count($this->parameters) > 0) {
+            foreach ($this->parameters as $key => $value) {
+                $parameterStrings[] = "{$key}={$value}";
+            }
+            $url .= '&' . implode('&', $parameterStrings);
         }
-        $url .= implode('&', $parameterStrings);
 
         return $url;
     }
