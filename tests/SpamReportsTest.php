@@ -74,5 +74,141 @@ class SpamReportsTest extends AbstractTestBase
         $this->assertInstanceOf('\Guzzle\Http\Message\Response', $actualResponse);
         $this->assertEquals(200, $actualResponse->getStatusCode());
     }
+
+    public function testDateSetterAndGetter()
+    {
+        $this->spamReports->setDate(1);
+        $this->assertEquals(1, $this->spamReports->getDate());
+        $this->spamReports->setDate(null);
+        $this->assertEquals(null, $this->spamReports->getDate());
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetDateThrowsExceptionWhenDateIsNotOne()
+    {
+        $this->spamReports->setDate(0);
+    }
+
+    public function testDaysSetterAndGetter()
+    {
+        $expectedDays = 5;
+        $this->spamReports->setDays($expectedDays);
+        $this->assertEquals($expectedDays, $this->spamReports->getDays());
+        $expectedDays = null;
+        $this->spamReports->setDays($expectedDays);
+        $this->assertEquals($expectedDays, $this->spamReports->getDays());
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetDaysThrowsExceptionWhenDateIsNotPositiveInt()
+    {
+        $invalidDays = 0;
+        $this->spamReports->setDays($invalidDays);
+    }
+
+    public function testStartDateSetterAndGetter()
+    {
+        $validStartDate = '2015-06-01';
+        $this->spamReports->setStartDate($validStartDate);
+        $this->assertEquals($validStartDate, $this->spamReports->getStartDate());
+        $validStartDate = null;
+        $this->spamReports->setStartDate($validStartDate);
+        $this->assertEquals($validStartDate, $this->spamReports->getStartDate());
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testSetStartDateThrowsExceptionWhenStartDateIsInvalid()
+    {
+        $invalidStartDate = 'invalid';
+        $this->spamReports->setStartDate($invalidStartDate);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetStartDateThrowsExceptionWhenStartDateHasInvalidFormat()
+    {
+        $invalidStartDate = '2015-06-01 12:34:56';
+        $this->spamReports->setStartDate($invalidStartDate);
+    }
+
+    public function testEndDateSetterAndGetter()
+    {
+        $validEndDate = '2015-06-01';
+        $this->spamReports->setEndDate($validEndDate);
+        $this->assertEquals($validEndDate, $this->spamReports->getEndDate());
+        $validEndDate = null;
+        $this->spamReports->setEndDate($validEndDate);
+        $this->assertEquals($validEndDate, $this->spamReports->getEndDate());
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testSetEndDateThrowsExceptionWhenEndDateIsInvalid()
+    {
+        $invalidEndDate = 'invalid';
+        $this->spamReports->setEndDate($invalidEndDate);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetEndDateThrowsExceptionWhenEndDateHasInvalidFormat()
+    {
+        $invalidEndDate = '2015-06-01 12:34:56';
+        $this->spamReports->setEndDate($invalidEndDate);
+    }
+
+    public function testLimitSetterAndGetter()
+    {
+        $validLimit = 10;
+        $this->spamReports->setLimit($validLimit);
+        $this->assertEquals($validLimit, $this->spamReports->getLimit());
+        $validLimit = null;
+        $this->spamReports->setLimit($validLimit);
+        $this->assertEquals($validLimit, $this->spamReports->getLimit());
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetLimitThrowsExceptionWhenLimitIsNotPositiveInt()
+    {
+        $invalidLimit = -10;
+        $this->spamReports->setLimit($invalidLimit);
+    }
+
+    public function testOffsetSetterAndGetter()
+    {
+        $validOffset = 10;
+        $this->spamReports->setOffset($validOffset);
+        $this->assertEquals($validOffset, $this->spamReports->getOffset());
+        $validOffset = null;
+        $this->spamReports->setOffset($validOffset);
+        $this->assertEquals($validOffset, $this->spamReports->getOffset());
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetOffsetThrowsExceptionWhenOffsetIsNotPositiveInteger()
+    {
+        $invalidOffset = -10;
+        $this->spamReports->setOffset($invalidOffset);
+    }
+
+    public function testEmailSetterAndGetter()
+    {
+        $validEmail = 'me@test.com';
+        $this->spamReports->setEmail($validEmail);
+        $this->assertEquals($validEmail, $this->spamReports->getEmail());
+    }
 }
  
