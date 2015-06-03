@@ -214,6 +214,7 @@ class SpamReports extends SendGridWebApiAbstract
     {
 //        if (is_null($email) || )
         $this->email = $email;
+        $this->addParameter('email', $email);
     }
 }
  

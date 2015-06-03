@@ -11,7 +11,7 @@ abstract class SendGridWebApiAbstract
     const SENDGRID_RESPONSE_FORMAT_JSON = 'json';
     const SENDGRID_RESPONSE_FORMAT_XML = 'xml';
 
-    const VALID_DATE_FORMAT = 'YYYY-MM-DD';
+    const VALID_DATE_FORMAT = 'Y-m-d';
 
     /**
      * @var string
@@ -75,7 +75,7 @@ abstract class SendGridWebApiAbstract
      */
     private function assembleApiCall()
     {
-        $url = $this->getApiBaseUrl() . $this->getModule() . '.' . $this->getAction() . $this->getFormat() . '?';
+        $url = $this->getApiBaseUrl() . $this->getModule() . '.' . $this->getAction() . '.' . $this->getFormat() . '?';
         $url .= 'api_user='.$this->getApiUserName() . '&api_key=' . $this->getApiPassword();
         $parameterStrings = [];
         if (is_array($this->parameters) && count($this->parameters) > 0) {
