@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the iDimensionz/sendgrid-webapi package.
+ *
+ * Copyright (c) 2015 iDimensionz <info@idimensionz.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace iDimensionz\SendGridWebApi;
 
@@ -46,6 +54,11 @@ abstract class SendGridWebApiAbstract
      */
     private $parameters;
 
+    /**
+     * @param string $apiUserName
+     * @param string $apiPassword
+     * @param string $webApiUrl
+     */
     public function __construct($apiUserName, $apiPassword, $webApiUrl = self::SENDGRID_PRODUCTION_WEB_API_BASE_URL)
     {
         $this->setApiUserName($apiUserName);

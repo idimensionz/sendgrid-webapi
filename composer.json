@@ -1,7 +1,10 @@
 {
     "name": "idimensionz/sendgrid-webapi",
     "description": "PHP implementation of the SendGrid WebAPI",
+    "homepage": "https://github.com/idimensionz/sendgrid-webapi",
+    "keywords": ["SendGrid","sendgrid","api","Spam"],
     "require": {
+        "php": ">=5.4.0",
         "guzzlehttp/guzzle": "5.3.*",
         "symfony/symfony": "2.6.*",
         "phake/phake": "2.1.*"
@@ -20,7 +23,7 @@
     "authors": [
         {
             "name": "Jim Mullen",
-            "email": "jim@idimensionz.com"
+            "email": "info@idimensionz.com"
         }
     ]
 }

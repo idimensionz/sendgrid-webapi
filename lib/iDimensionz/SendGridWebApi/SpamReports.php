@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of the iDimensionz/sendgrid-webapi package.
+ *
+ * Copyright (c) 2015 iDimensionz <info@idimensionz.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace iDimensionz\SendGridWebApi;
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
@@ -42,12 +50,27 @@ class SpamReports extends SendGridWebApiAbstract
      */
     private $email;
 
+    /**
+     * @param string $apiUserName
+     * @param string $apiPassword
+     * @param string $apiBaseUrl
+     */
     public function __construct($apiUserName, $apiPassword, $apiBaseUrl = self::SENDGRID_PRODUCTION_WEB_API_BASE_URL)
     {
         parent::__construct($apiUserName, $apiPassword, $apiBaseUrl);
         $this->setModule(self::MODULE_SPAM_REPORTS);
     }
 
+    /**
+     * @param int $date
+     * @param int $days
+     * @param string $startDate
+     * @param string $endDate
+     * @param int $limit
+     * @param int $offset
+     * @param string $email
+     * @return \GuzzleHttp\Message\FutureResponse|\GuzzleHttp\Message\ResponseInterface|\GuzzleHttp\Ring\Future\FutureInterface|null
+     */
     public function get($date=1, $days=null, $startDate=null, $endDate=null, $limit=null, $offset=null, $email=null)
     {
         $this->setAction('get');
@@ -63,6 +86,9 @@ class SpamReports extends SendGridWebApiAbstract
         return $response;
     }
 
+    /**
+     * @return \GuzzleHttp\Message\FutureResponse|\GuzzleHttp\Message\ResponseInterface|\GuzzleHttp\Ring\Future\FutureInterface|null
+     */
     public function count()
     {
         $this->setAction('count');
@@ -212,7 +238,6 @@ class SpamReports extends SendGridWebApiAbstract
      */
     public function setEmail($email)
     {
-//        if (is_null($email) || )
         $this->email = $email;
         $this->addParameter('email', $email);
     }
