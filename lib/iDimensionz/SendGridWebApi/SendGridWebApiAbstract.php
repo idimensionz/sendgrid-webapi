@@ -78,7 +78,7 @@ abstract class SendGridWebApiAbstract
     public function callApiFunction()
     {
         $apiCallUrl = $this->assembleApiCall();
-        $response = $this->httpClient->get($apiCallUrl);
+        $response = $this->getHttpClient()->get($apiCallUrl);
 
         return $response;
     }
