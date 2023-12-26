@@ -6,6 +6,5 @@
 
 PHP code for utilizing SendGrid's WebAPI
 
-[Communiqué](http://communique.idimensionz.com) is iDimensionz's email marketing service.  Please consider using Communiqué for your email marketing.
-
+This repository is now archived and no longer maintained.
 
